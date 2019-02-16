@@ -60,6 +60,22 @@
             this.language = lang;
             this.validate();
             return this;
+        },
+        HTMLGreeting: function(selector,formal){
+            if(!$){
+                throw 'Jquery Not Loaded';
+            }
+            if(!selector){
+                throw 'Missing Jquery Selector';
+            }
+            var msg;
+            if (formal){
+                msg = this.formalGreeting();
+            }else{
+                msg = this.greeting();
+            }
+            $(selector).html(msg);
+            return this;
         }
 
     };
